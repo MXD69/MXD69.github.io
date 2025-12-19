@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="tags:OverviewNode.js 是一个能让 JavaScript 语言在电脑上独立运行的环境传统JavaScript只涉及前台，不涉及后台，当想要与服务器发生互动的时候，就需要Node.js。Node.js自带的包管理器npm（Node Package Manager）是全球最大的开源库生态系统，有数百万个可用工具（Hexo就是其中之一）。Hexo是一个基于Node.js的静态网站生成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My first Blog!">
+<meta property="og:url" content="http://example.com/Blogs/Hexo/index.html">
+<meta property="og:site_name" content="MaxBlog">
+<meta property="og:description" content="tags:OverviewNode.js 是一个能让 JavaScript 语言在电脑上独立运行的环境传统JavaScript只涉及前台，不涉及后台，当想要与服务器发生互动的时候，就需要Node.js。Node.js自带的包管理器npm（Node Package Manager）是全球最大的开源库生态系统，有数百万个可用工具（Hexo就是其中之一）。Hexo是一个基于Node.js的静态网站生成">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-19T06:37:13.000Z">
+<meta property="article:modified_time" content="2025-12-19T14:19:07.160Z">
+<meta property="article:author" content="Max">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>My first Blog!</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/uncategorized/blog/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/Blogs/text1/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/Blogs/Hexo/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/Blogs/Hexo/&text=My first Blog!"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/Blogs/Hexo/&is_video=false&description=My first Blog!"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=My first Blog!&body=Check out this article: http://example.com/Blogs/Hexo/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/Blogs/Hexo/&name=My first Blog!&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/Blogs/Hexo/&t=My first Blog!"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">2.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#config-yml"><span class="toc-number">3.</span> <span class="toc-text">config.yml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">网站设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E5%9D%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">网址设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E8%AE%BE%E7%BD%AE%EF%BC%88%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E8%AE%BE%E7%BD%AE%E5%90%84%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%90%8D%E7%A7%B0%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">目录设置（其实就是设置各个文件夹的名称）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.4.</span> <span class="toc-text">文章设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="toc-number">3.4.1.</span> <span class="toc-text">代码高亮</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E9%A1%B5%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.5.</span> <span class="toc-text">首页设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB-%E6%A0%87%E7%AD%BE"><span class="toc-number">3.6.</span> <span class="toc-text">分类 &amp; 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.7.</span> <span class="toc-text">日期 &#x2F; 时间格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5"><span class="toc-number">3.8.</span> <span class="toc-text">分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95"><span class="toc-number">3.9.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E6%8B%AC%E6%88%96%E4%B8%8D%E5%8C%85%E6%8B%AC%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6"><span class="toc-number">3.10.</span> <span class="toc-text">包括或不包括目录和文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E6%9B%BF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.11.</span> <span class="toc-text">使用代替配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#init"><span class="toc-number">4.1.</span> <span class="toc-text">init</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        My first Blog!
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Max</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-12-19T06:37:13.000Z" class="dt-published" itemprop="datePublished">2025-12-19</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Blogs/">Blogs</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/hexo/" rel="tag">hexo</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <hr>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Node.js 是一个能让 JavaScript 语言在电脑上独立运行的环境<br>传统JavaScript只涉及前台，不涉及后台，当想要与服务器发生互动的时候，就需要Node.js。<br>Node.js自带的包管理器npm（Node Package Manager）是全球最大的开源库生态系统，有数百万个可用工具（Hexo就是其中之一）。<br>Hexo是一个基于<strong>Node.js</strong>的静态网站生成工具，它：</p>
+<ul>
+<li><p>使用Markdown格式编写文章</p>
+</li>
+<li><p>通过模板引擎（如EJS、Swig）生成静态HTML文件</p>
+</li>
+<li><p>将纯文本内容转换成完整的网站</p>
+</li>
+</ul>
+<p>Hexo就是一个把Markdown转换成HTML文件的工具，<br>下面是用hexo + github进行个人博客搭建的过程。<br>![[image-4.png]]<br>CDN分发[[Github学习#^bcdc3f]]</p>
+<p>Hexo创建个人博客的步骤<br>第一步就是创建一个位于自己电脑上的文件夹，用于存放各种自己博客的文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init foldername</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>在进行了初始化之后，文件夹中会有几个核心的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<p>其中 <strong>_config.yml</strong>是网站的 配置 文件。 您可以在此配置大部分的参数。</p>
+<p><strong>package.json</strong>是应用程序的信息，<a target="_blank" rel="noopener" href="https://ejs.co/">EJS</a>, <a target="_blank" rel="noopener" href="http://learnboost.github.io/stylus/">Stylus</a> 和 <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/">Markdown</a> 渲染引擎 已默认安装，内部是一些渲染网站所需要的各种应用程序。<br><strong>scaffolds</strong>是创建文章所需要的模板<br><strong>source</strong>文件夹是用于存放用户想要往网站上添加的内容的地方。<br><strong>themes</strong>用于存放主题</p>
+<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="config.yml"></a>config.yml</h2><p>位于blog文档根目录下的_config.yml文件中存储的是博客的大部分配置，称为<strong>配置文件</strong>，里面用Markdown语言的格式对博客的许多属性进行设定。从上到下进行学习。</p>
+<h3 id="网站设置"><a href="#网站设置" class="headerlink" title="网站设置"></a>网站设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">设置 	描述</span><br><span class="line">title 	网站标题</span><br><span class="line">subtitle 	网站副标题</span><br><span class="line">description 	网站描述</span><br><span class="line">keywords 	网站的关键词。 支持多个关键词。</span><br><span class="line">author 	您的名字</span><br><span class="line">language 	网站使用的语言。 使用 2 个字母的 ISO-639-1 代码，或 它的变体。 默认为 en。</span><br><span class="line">timezone 	网站时区。 Hexo 默认使用您电脑的时区。 请参考 时区列表 进行设置，如 America/New_York, Japan, 和 UTC 。 一般的，对于中国大陆地区可以使用 Asia/Shanghai。</span><br></pre></td></tr></table></figure>
+
+<h3 id="网址设置"><a href="#网址设置" class="headerlink" title="网址设置"></a>网址设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">设置 	描述 	默认值</span><br><span class="line">url 	网址, 必须以 http:// 或 https:// 开头 ,但是我改成maxiaodong.top之后在Hexo clean 的时候出现了错误，还是用默认的比较好。	</span><br><span class="line">root 	网站根目录 	url&#x27;s pathname   在当下版本中我没有找到这个</span><br><span class="line">permalink 	文章的 永久链接 格式 	:year/:month/:day/:title/  注意结尾一定要有/,不然博客连接会导向下载，而不是新的页面。文章的永久链接指的是下图网址处的东西  永久链接既可以在根目录下的_config.yml中进行同意修改，这样所有的博文都会遵循同样的设置，也可以在每篇博文的开端进行单独设置而不影响其他博文。</span><br><span class="line">permalink_defaults 	永久链接中各部分的默认值 	例如将类别变量固定显示为“泪别”</span><br><span class="line">pretty_urls 	改写 permalink 的值来美化 URL 	</span><br><span class="line">pretty_urls.trailing_index 	是否在永久链接中保留尾部的 index.html，设置为 false 时去除 	true</span><br><span class="line">pretty_urls.trailing_html 	是否在永久链接中保留尾部的 .html, 设置为 false 时去除 (对尾部的 index.html无效)</span><br></pre></td></tr></table></figure>
+<p>![[image-5.png]]</p>
+<h3 id="目录设置（其实就是设置各个文件夹的名称）"><a href="#目录设置（其实就是设置各个文件夹的名称）" class="headerlink" title="目录设置（其实就是设置各个文件夹的名称）"></a>目录设置（其实就是设置各个文件夹的名称）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">设置 	描述 	默认值</span><br><span class="line">source_dir 	Source 文件夹 存储内容的位置 	source 就是选择创建source和public文件的文件夹名字，这两个文件夹都位于blog根目录下</span><br><span class="line">public_dir 	Public 文件夹 生成静态站点的位置 	public</span><br><span class="line">tag_dir 	标签文件夹 	同样是命名，tags 和archive、category都位于public文件夹下</span><br><span class="line">archive_dir 	归档文件夹 	archives</span><br><span class="line">category_dir 	分类文件夹 	categories</span><br><span class="line">code_dir 	Include code 文件夹，source_dir 下的子目录 	downloads/code</span><br><span class="line">i18n_dir 	国际化（i18n）文件夹 	:lang</span><br><span class="line">skip_render 	匹配到的文件将会被不做改动地复制到 public 目录中。 您可使用 glob 表达式来匹配路径。</span><br></pre></td></tr></table></figure>
+<h3 id="文章设置"><a href="#文章设置" class="headerlink" title="文章设置"></a>文章设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">设置 	描述 	默认值</span><br><span class="line">new_post_name 	新文章的文件名称 	:title.md 指新的博文的名字将是文件名加.md</span><br><span class="line">default_layout 	预设布局 	post #共有三种布局可选</span><br><span class="line">titlecase 	把标题转换为 title case 	false  #指的是把标题改为首字母大写的格式</span><br><span class="line">external_link 	在新标签中打开链接 	</span><br><span class="line">external_link.enable 	在新标签中打开链接 	true</span><br><span class="line">external_link.field 	对整个网站（site）生效或仅对文章（post）生效 	site</span><br><span class="line">external_link.exclude 	需要排除的域名。 主域名和子域名如 www 需分别配置 	[]</span><br><span class="line">filename_case 	设置为 1 ，将文件名转换为小写形式； 设置为 2 ，将文件名转换为大写形式。 	0</span><br><span class="line">render_drafts 	显示草稿 	false</span><br><span class="line">post_asset_folder 	启用 资源文件夹 	false</span><br><span class="line">relative_link 	把链接改为与根目录的相对位址 	false</span><br><span class="line">future 	显示未来的文章 	true</span><br><span class="line">syntax_highlighter 	代码块的设置, 请参考 代码高亮 进行设置 	highlight.js </span><br><span class="line">highlight 	代码块的设置, 请参考 Highlight.js 进行设置 	</span><br><span class="line">prismjs 	代码块的设置, 请参考 PrismJS 进行设置</span><br></pre></td></tr></table></figure>
+<p>当 <code>post_asset_folder</code> 设置为 <code>true</code> 时，每当你使用 <code>hexo new &lt;title&gt;</code> 创建一篇新文章时，Hexo 会自动在 <code>source/_posts</code> 目录下生成一个与文章同名的文件夹，用于存放该文章使用的资源文件（例如图片，更便于整理以及增减）。<br>![[image-6.png|446x116]]</p>
+<p>Future和draft的区别<br>假设今天日期是2023年10月1日，你有一篇文章的日期设置为2023年10月10日。</p>
+<pre><code>如果 future: true，那么生成站点时会包括这篇文章。
+
+如果 future: false，那么生成站点时不会包括这篇文章。
+</code></pre>
+<p>与草稿（draft）的区别</p>
+<pre><code>未来文章：已经写好，但日期设在未来，可以选择是否立即生成。
+
+草稿：标记为草稿的文章，除非在生成命令中加上 --draft 参数，否则不会生成。
+</code></pre>
+<h4 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h4><p>指的是在博客中插入一段代码，就像是知乎那样进行高亮显示<br>config.yml中syntax_highlighter下可以选择使用<strong>highlight.js</strong>或<strong>prismjs</strong>两种高亮代码库之一。highlight.js更加简单，prismjs更加专业<br>highlight下有几个属性：<br><code>auto_detect</code> 是 <code>highlight.js</code> 的特性，能够自动检测代码块的语言。<br>line_number决定是否显示代码的行号<br>tab_replace用给定字符串替换代码块内的制表符。 默认为 2 个空格。<br>wrap为了支持行号显示，Hexo 将输出包裹在了 <code>&lt;figure&gt; 和 &lt;table&gt; </code>内部。 如果要保持 highlight.js 原来的行为，你需要将 line_number 和 wrap 全部关闭。<br>这里暂时先不学prismjs的教程了，之后可以选择这个风格。</p>
+<h3 id="首页设置"><a href="#首页设置" class="headerlink" title="首页设置"></a>首页设置</h3><table>
+<thead>
+<tr>
+<th>设置</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>index_generator</code></td>
+<td>生成帖子归档。由 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-index">hexo-generator-index</a> 驱动。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>index_generator.path</code></td>
+<td>博客索引页面的根路径</td>
+<td><code>&#39;&#39;</code></td>
+</tr>
+<tr>
+<td><code>index_generator.per_page</code></td>
+<td>每页显示帖子数</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>index_generator.order_by</code></td>
+<td>帖子排列顺序。 默认情况下按日期降序(从新到旧)。</td>
+<td><code>-date</code></td>
+</tr>
+<tr>
+<td><code>index_generator.pagination_dir</code></td>
+<td>URL 格式，请参阅下面的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration#Pagination">分页</a> 设置</td>
+<td><code>page</code></td>
+</tr>
+</tbody></table>
+<h3 id="分类-标签"><a href="#分类-标签" class="headerlink" title="分类 &amp; 标签"></a>分类 &amp; 标签</h3><table>
+<thead>
+<tr>
+<th>设置</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>default_category</code></td>
+<td>默认分类</td>
+<td><code>uncategorized</code></td>
+</tr>
+<tr>
+<td><code>category_map</code></td>
+<td>分类别名</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tag_map</code></td>
+<td>标签别名</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="日期-时间格式"><a href="#日期-时间格式" class="headerlink" title="日期 &#x2F; 时间格式"></a>日期 &#x2F; 时间格式</h3><p>Hexo 使用 <a target="_blank" rel="noopener" href="http://momentjs.com/">Moment.js</a> 来解析和显示时间。Moment.js是一个在过去十年里极为成功和流行的日期处理库</p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>date_format</code></td>
+<td>日期格式</td>
+<td><code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td><code>time_format</code></td>
+<td>时间格式</td>
+<td><code>HH:mm:ss</code></td>
+</tr>
+<tr>
+<td><code>updated_option</code></td>
+<td>当 Front Matter 中没有指定 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/variables#%E9%A1%B5%E9%9D%A2%E5%8F%98%E9%87%8F"><code>updated</code></a> 时 <code>updated</code> 的取值</td>
+<td><code>mtime</code></td>
+</tr>
+</tbody></table>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><table>
+<thead>
+<tr>
+<th>设置</th>
+<th>描述</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>per_page</code></td>
+<td>每页显示的帖子数。 <code>0</code> 关闭分页功能</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>pagination_dir</code></td>
+<td>URL 格式</td>
+<td><code>page</code></td>
+</tr>
+</tbody></table>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><table>
+<thead>
+<tr>
+<th>设置</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>theme</code></td>
+<td>当前主题名称。 值为<code>false</code>时禁用主题</td>
+</tr>
+<tr>
+<td><code>theme_config</code></td>
+<td>主题的配置文件。 在这里放置的配置会覆盖主题目录下的 <code>_config.yml</code> 中的配置</td>
+</tr>
+<tr>
+<td><code>deploy</code></td>
+<td>部署部分的设置</td>
+</tr>
+<tr>
+<td><code>meta_generator</code></td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta#%E5%B1%9E%E6%80%A7">Meta generator</a> 标签。 值为 <code>false</code> 时 Hexo 不会在头部插入该标签</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="包括或不包括目录和文件"><a href="#包括或不包括目录和文件" class="headerlink" title="包括或不包括目录和文件"></a>包括或不包括目录和文件</h3><p>使用以下选项可明确处理或忽略某些文件&#x2F;文件夹。 可以使用 <a target="_blank" rel="noopener" href="https://github.com/micromatch/micromatch#extended-globbing">glob 表达式</a> 进行路径匹配。</p>
+<p><code>include</code> 和 <code>exclude</code> 选项只会应用到 <code>source/</code> ，而 <code>ignore</code> 选项会应用到所有文件夹.</p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>include</code></td>
+<td>包含隐藏文件（包括名称以下划线开头的文件&#x2F;文件夹，* 除外）</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>排除文件或文件夹</td>
+</tr>
+<tr>
+<td><code>ignore</code></td>
+<td>忽略文件&#x2F;文件夹</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 处理或不处理目录或文件</span><br><span class="line">include:</span><br><span class="line">  - &quot;.nojekyll&quot;</span><br><span class="line">  # 处理 &#x27;source/css/_typing.css&#x27;</span><br><span class="line">  </span><br><span class="line">exclude:  </span><br><span class="line">  # 不处理 &#x27;source/js/test.js&#x27;。  </span><br><span class="line">  - &quot;js/test.js&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>例如用exclude：排除特定文件<br>用于排除 source 目录下你不希望被Hexo处理或发布的文件或目录。被排除的文件既不会被渲染，也不会被复制到 public 目录。<br>常见用例：</p>
+<pre><code>排除存放草稿的目录（如 _drafts）。
+
+排除用于测试、开发的页面或数据文件。
+</code></pre>
+<h3 id="使用代替配置文件"><a href="#使用代替配置文件" class="headerlink" title="使用代替配置文件"></a>使用代替配置文件</h3><p>用户可以自己指定配置文件，而不是只用默认的config.yml,并且可以同时指定多个配置文件，以靠后的值为准。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># use &#x27;custom.yml&#x27; in place of &#x27;_config.yml&#x27;</span><br><span class="line">$ hexo server --config custom.yml</span><br><span class="line"></span><br><span class="line"># use &#x27;custom.yml&#x27; &amp; &#x27;custom2.json&#x27;, prioritizing &#x27;custom2.json&#x27;</span><br><span class="line">$ hexo server --config custom.yml,custom2.json</span><br></pre></td></tr></table></figure>
+
+<p>URL（<strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator，统一资源定位符）是互联网的<strong>核心地址系统</strong>，用于<strong>唯一标识和定位网络上任何资源的位置以及访问它的方法</strong>。</p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<p>如果没有特别指定文件夹[folder]的话，那么就在宣传日博客的文件夹下打开git bash，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init </span><br></pre></td></tr></table></figure>
+<p>这个命令会启动git clone将hexo-starter 和 hexo-theme-landscape 克隆到文件夹下。<strong>Hexo Starter</strong>是一个预配置的Hexo项目模板，提供博客所需的标准目录结构、基础配置文件和依赖项。，负责安装配置文件 (<code>_config.yml</code>)、<code>source</code>源文件夹、<code>themes</code>主题文件夹、必要的脚本等。<br><strong>Hexo Theme Landscape</strong>负责导入默认的主题，就是地球的那个。这两个命令分别创建了下面的文件夹![[image-7.png|658x180]]</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">2.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#config-yml"><span class="toc-number">3.</span> <span class="toc-text">config.yml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">网站设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E5%9D%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">网址设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E8%AE%BE%E7%BD%AE%EF%BC%88%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E8%AE%BE%E7%BD%AE%E5%90%84%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%90%8D%E7%A7%B0%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">目录设置（其实就是设置各个文件夹的名称）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.4.</span> <span class="toc-text">文章设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="toc-number">3.4.1.</span> <span class="toc-text">代码高亮</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E9%A1%B5%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.5.</span> <span class="toc-text">首页设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB-%E6%A0%87%E7%AD%BE"><span class="toc-number">3.6.</span> <span class="toc-text">分类 &amp; 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.7.</span> <span class="toc-text">日期 &#x2F; 时间格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5"><span class="toc-number">3.8.</span> <span class="toc-text">分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95"><span class="toc-number">3.9.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E6%8B%AC%E6%88%96%E4%B8%8D%E5%8C%85%E6%8B%AC%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6"><span class="toc-number">3.10.</span> <span class="toc-text">包括或不包括目录和文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E6%9B%BF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.11.</span> <span class="toc-text">使用代替配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#init"><span class="toc-number">4.1.</span> <span class="toc-text">init</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/Blogs/Hexo/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/Blogs/Hexo/&text=My first Blog!"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/Blogs/Hexo/&is_video=false&description=My first Blog!"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=My first Blog!&body=Check out this article: http://example.com/Blogs/Hexo/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/Blogs/Hexo/&title=My first Blog!"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/Blogs/Hexo/&name=My first Blog!&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/Blogs/Hexo/&t=My first Blog!"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025-2055
+    Max
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
